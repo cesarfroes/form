@@ -4,10 +4,10 @@ Em nosso site temos um formulário de orçamento específico para cada uma das s
 
 Os formulários podem ser vistos em:
 
-http://www.getninjas.com.br/reformas-e-reparos/pintor/pedidos/novo
-http://www.getninjas.com.br/eventos-e-festas/recepcionistas-garcons-e-bartenders/pedidos/novo
-http://www.getninjas.com.br/para-o-lar-e-animais-de-estimacao/acompanhante-de-idosos/pedidos/novo
-http://www.getninjas.com.br/tecnologia-e-internet/manutencao-de-computadores/pedidos/novo
+http://www.getninjas.com.br/reformas-e-reparos/pedreiro/
+http://www.getninjas.com.br/eventos-e-festas/recepcionistas-garcons-e-bartenders/
+http://www.getninjas.com.br/para-o-lar-e-animais-de-estimacao/acompanhante-de-idosos/
+http://www.getninjas.com.br/tecnologia-e-internet/manutencao-de-computadores/
 
 Sua tarefa é criar uma aplicação Rails com uma interface administrativa que permite criar / editar formulários para cada uma das subcategorias existentes.
 
@@ -44,7 +44,6 @@ Os formulários são baseados na seguinte estrutura:
 }
 
 Esta aplicação Rails contém modelos ActiveRecord para Category e SubCategory, e seed data para 2 categorias e 4 subcategorias.
-
 Através do Admin, deve ser possível:
   - adicionar / remover os campos de cada formulário
   - escolher o tipo do campo
@@ -56,7 +55,7 @@ O codigo deve ser genérico o suficiente para suportar mais de 100 formulários.
 == É necessário:
 
   - Testes (unitário e de integração) para a geração dos formulários dinâmicos
-  - Que os formulários sejam exibidos ao acessar a rota: /:slug_categoria/:slug_subcategoria/pedidos/novo
+  - Que os formulários sejam exibidos ao acessar a rota: /:slug_categoria/:slug_subcategoria/
   - Criar commits (Git) mostrando a evolução da sua app
 
 == Não é necessário:
