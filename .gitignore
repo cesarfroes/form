@@ -14,3 +14,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore the vendor files
+/vendor
