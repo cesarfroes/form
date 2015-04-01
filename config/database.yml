@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  min_messages: warning
+  host: localhost
+  pool: 5
+  username: postgres
+  password: postgres
+
+development:
+  <<: *defaults
+  database: form_development
+
+test:
+  <<: *defaults
+  database: form_test
+
+production:
+  <<: *defaults
+  database: form_production

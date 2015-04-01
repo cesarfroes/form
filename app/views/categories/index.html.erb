@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>slug</th>
+      <th>edit</th>
+      <th>remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%=category.id%></td>
+        <td><%=category.name%></td>
+        <td><%=category.slug%></td>
+        <td><input type="button" value="edit"></td>
+        <td><input type="button" value="remove"></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

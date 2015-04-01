@@ -9,9 +9,19 @@ gem "jquery-rails"
 gem 'devise'
 gem 'responders'
 gem 'therubyracer', :platforms => :ruby
+gem 'twitter-bootstrap-rails'
+
+group :production do
+	gem 'unicorn'
+end
 
 group :development, :test do
-  gem "byebug"
-  gem "web-console", "~> 2.0"
-  gem "spring"
+  gem "rspec-rails"
+  gem "pry-meta"
+  gem "factory_girl"
+  gem "faker"
+end
+
+group :test do
+  gem "capybara"
 end
