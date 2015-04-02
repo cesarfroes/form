@@ -1,0 +1,36 @@
+<%= form_for @category do |f| %>
+  <% if @category.errors.any? %>
+    <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <div>
+    <div>
+      <div>
+        <%= f.label :name %>
+      </div>
+      <div>
+        <%= f.text_area :name %>
+      </div>      
+    </div>
+    <div>
+      <div>
+        <%= f.label :slug %>
+      </div>
+      <div>
+        <%= f.text_area :slug %>
+      </div>      
+    </div>
+    <div>
+      <div>
+        <%= f.submit nil%>
+      </div>
+      <div>
+        <%= link_to "cancel", categories_path%>
+      </div>      
+    </div>    
+  <div>
+<% end %>
