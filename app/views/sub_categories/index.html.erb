@@ -1,0 +1,40 @@
+<h1>
+SubCategories
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>slug</th>
+      <th>category</th>      
+      <th>edit</th>
+      <th>remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sub_categories.each do |sub_category| %>
+      <tr>
+        <td><%=sub_category.id%></td>
+        <td><%=sub_category.name%></td>
+        <td><%=sub_category.slug%></td>
+        <td><%=sub_category.category.name%></td>
+        <td>          
+          <%= link_to "edit",
+                       edit_sub_category_path(sub_category) %>
+        </td>
+        <td>
+          <%= link_to "delete",
+                      sub_category_path(sub_category),
+                      :method => :delete,
+                      :data => { :confirm => "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>
+        <%= link_to "new", new_sub_category_path %>
+      </td>
+    </tr>
+  </tbody>
+</table>

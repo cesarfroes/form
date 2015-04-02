@@ -6,4 +6,5 @@ Rails.application.routes.draw do
  #delete "/categories/:id", to: "categories#destroy", as: "categories_destroy"
 
  resources :categories
+ resources :sub_categories
 end
