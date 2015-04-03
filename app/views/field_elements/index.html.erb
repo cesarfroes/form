@@ -1,0 +1,38 @@
+<h1>
+FieldElements
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>element</th>
+      <th>options</th>      
+      <th>edit</th>
+      <th>remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @field_elements.each do |field_element| %>
+      <tr>
+        <td><%=field_element.id%></td>
+        <td><%=field_element.element%></td>
+        <td><%=field_element.options%></td>
+        <td>          
+          <%= link_to "edit",
+                       edit_field_element_path(field_element) %>
+        </td>
+        <td>
+          <%= link_to "delete",
+                      field_element_path(field_element),
+                      :method => :delete,
+                      :data => { :confirm => "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>
+        <%= link_to "new", new_field_element_path %>
+      </td>
+    </tr>
+  </tbody>
+</table>

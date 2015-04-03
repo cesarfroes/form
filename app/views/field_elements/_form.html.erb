@@ -1,0 +1,38 @@
+<%= form_for @field_element do |f| %>
+  <% if @field_element.errors.any? %>
+    <ul>
+      <% @field_element.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <div>
+    <div>
+      <div>
+        <%= f.label :element %>
+      </div>
+      <div>
+        <%= f.text_field :element %>
+      </div>      
+    </div>
+    <div>
+      <div>
+        <%= f.label :options %>
+      </div>
+      <div>
+        <%= f.select :options,
+            { 'True'=>true, 'False'=>false }
+        %>
+      </div>      
+    </div>
+    <div>
+      <div>
+        <%= f.submit nil%>
+      </div>
+      <div>
+        <%= link_to "cancel", field_elements_path%>
+      </div>      
+    </div>    
+  <div>
+<% end %>
