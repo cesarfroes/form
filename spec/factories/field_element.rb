@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :field_element do
-    element "input_text"
+    element "text_field"
     options false
   end
 end

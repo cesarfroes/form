@@ -5,7 +5,7 @@ RSpec.describe Category, type: :view do
     assign(:sub_categories, create(:sub_category))
   end
 
-  it "sub_category's new page existe" do
+  it "sub_category's new page exists" do
   	visit "/sub_categories"
 
   	click_link "new"

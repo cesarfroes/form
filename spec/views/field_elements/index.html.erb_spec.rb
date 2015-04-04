@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :view do
+RSpec.describe FieldElement, type: :view do
   before(:each) do
-    assign(:categories, create(:category))
+    assign(:field_elements, create(:field_element))
   end
 
-  it "renders a list of categories" do
-    visit "categories/"
+  it "renders a list of field elements" do
+    visit "field_elements/"
 
-    expect(page).to have_content("Reformas e Reparos")
+    expect(page).to have_content("text_field")
   end
 end

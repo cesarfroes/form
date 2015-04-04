@@ -1,30 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe SubCategory, type: :view do
+RSpec.describe FieldElement, type: :view do
   before(:each) do
-    @sub_category = assign(:sub_categories, create(:sub_category))
+    @field_element = assign(:field_elements, create(:field_element))
   end
 
-  it "changing a category" do
-    visit "/sub_categories/#{@sub_category.id}/edit"
+  it "changing field element" do
+    visit "/field_elements/#{@field_element.id}/edit"
 
-    fill_in "Name", with: "pedreiro"
-    fill_in "Slug", with: "pedreiro"
+    fill_in "Element", with: "text_field"
+    page.select 'True', :from=> "Options"    
 
-    click_button "Update Sub category"
+    click_button "Update Field element"
 
-    expect(current_path).to eql(sub_categories_path)
-    expect(page).to have_content("SubCategory was successfully updated.")
+    expect(current_path).to eql(field_elements_path)
+    expect(page).to have_content("Field element was successfully updated.")
   end
 
-  it "changing a category to a invalid sub category" do
-    visit "/sub_categories/#{@sub_category.id}/edit"
+  it "changing field element to a invalid type" do
+    visit "/field_elements/#{@field_element.id}/edit"
 
-    fill_in "Name", with: "pedreiro$#"
-    fill_in "Slug", with: "pedreiro"
+    fill_in "Element", with: "input"
+    page.select 'True', :from=> "Options"
 
-    click_button "Update Sub category"
+    click_button "Update Field element"
     
-    expect(page).to have_content("Name is invalid")    
+    expect(page).to have_content("Element is not included in the list")    
   end
 end

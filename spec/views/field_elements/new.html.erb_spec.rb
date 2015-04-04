@@ -1,38 +1,38 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :view do
+RSpec.describe FieldElement, type: :view do
   before(:each) do
-    assign(:sub_categories, create(:sub_category))
+    assign(:field_elements, create(:field_element))
   end
 
-  it "sub_category's new page existe" do
-  	visit "/sub_categories"
+  it "field element's new page exists" do
+  	visit "/field_elements"
 
   	click_link "new"
 
-  	expect(current_path).to eql(new_sub_category_path)
-    expect(page).to have_content("New SubCategory")
+  	expect(current_path).to eql(new_field_element_path)
+    expect(page).to have_content("New Field Element")
   end
 
-  it "creating a new subcategory" do
-    visit "/sub_categories/new"
+  it "creating a new field element" do
+    visit "/field_elements/new"
 
-    fill_in "Name", with: "aulas"
-    fill_in "Slug", with: "aulas"
+    fill_in "Element", with: "text_area"
+    page.select 'True', :from=> "Options"
 
-    click_button "Create Sub category"
+    click_button "Create Field element"
 
-    expect(current_path).to eql(sub_categories_path)
-    expect(page).to have_content("SubCategory was successfully created.")
+    expect(current_path).to eql(field_elements_path)
+    expect(page).to have_content("Field element was successfully created.")
   end
-  it "creating a invalid subcategory" do 
-    visit "/sub_categories/new"
+  it "creating a invalid field element" do 
+    visit "/field_elements/new"
 
-    fill_in "Name", with: "aulas$#"
-    fill_in "Slug", with: "aulas-!#"
+    fill_in "Element", with: "text"
+    page.select 'True', :from=> "Options"
 
-    click_button "Create Sub category"
+    click_button "Create Field element"
     
-    expect(page).to have_content("Name is invalid")  
+    expect(page).to have_content("Element is not included in the list")  
   end
 end
