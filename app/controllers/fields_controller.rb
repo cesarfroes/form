@@ -13,9 +13,11 @@ class FieldsController < ApplicationController
 
   def create
     @field = Field.new(fields_params)
-
+    list_sub_categories
+    list_field_elements
+    
     if @field.save
-      redirect_to fields_path, notice: 'Field element was successfully created.'
+      redirect_to fields_path, notice: 'Field was successfully created.'
     else
       render :new
     end
@@ -30,6 +32,8 @@ class FieldsController < ApplicationController
     if @field.update(fields_params)
       redirect_to fields_path, notice: 'Field was successfully updated.'
     else
+      list_sub_categories
+      list_field_elements 
       render :edit
     end
   end 

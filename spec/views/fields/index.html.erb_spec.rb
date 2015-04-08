@@ -8,6 +8,6 @@ RSpec.describe Category, type: :view do
   it "renders a list of fields" do
     visit "fields/"
 
-    expect(page).to have_content("Reformas e Reparos")
+    expect(page).to have_content("Name")
   end
 end

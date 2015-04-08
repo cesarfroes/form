@@ -2,29 +2,33 @@ require 'rails_helper'
 
 RSpec.describe Field, type: :view do
   before(:each) do
-    @sub_category = assign(:fields, create(:field))
+    @field = assign(:fields, create(:field))
   end
 
   it "changing a category" do
     visit "/fields/#{@field.id}/edit"
 
-    fill_in "Name", with: "pedreiro"
-    fill_in "Slug", with: "pedreiro"
+    fill_in "Title", with: "Name2"
+    page.select 'pintor', :from=> "Sub category" 
+    page.select 'text_field', :from=> "Field element" 
+    fill_in "Order", with: 2
 
-    click_button "Update Sub category"
+    click_button "Update Field"
 
-    expect(current_path).to eql(sub_categories_path)
-    expect(page).to have_content("SubCategory was successfully updated.")
+    expect(current_path).to eql(fields_path)
+    expect(page).to have_content("Field was successfully updated.")
   end
 
-  it "changing a category to a invalid sub category" do
-    visit "/sub_categories/#{@sub_category.id}/edit"
+  it "changing a category to a invalid field" do
+    visit "/fields/#{@field.id}/edit"
 
-    fill_in "Name", with: "pedreiro$#"
-    fill_in "Slug", with: "pedreiro"
+    fill_in "Title", with: "Name2#!#"
+    page.select 'pintor', :from=> "Sub category" 
+    page.select 'text_field', :from=> "Field element" 
+    fill_in "Order", with: 2
 
-    click_button "Update Sub category"
+    click_button "Update Field"
     
-    expect(page).to have_content("Name is invalid")    
+    expect(page).to have_content("Title is invalid")   
   end
 end

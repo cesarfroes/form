@@ -17,22 +17,27 @@ RSpec.describe Field, type: :view do
   it "creating a new field" do
     visit "/fields/new"
 
-    fill_in "Name", with: "aulas"
-    fill_in "Slug", with: "aulas"
+    fill_in "Title", with: "Name2"
+    page.select 'pintor', :from=> "Sub category" 
+    page.select 'text_field', :from=> "Field element" 
+    fill_in "Order", with: 2
 
     click_button "Create Field"
 
     expect(current_path).to eql(fields_path)
     expect(page).to have_content("Field was successfully created.")
   end
+
   it "creating a invalid field" do 
     visit "/fields/new"
 
-    fill_in "Name", with: "aulas$#"
-    fill_in "Slug", with: "aulas-!#"
+    fill_in "Title", with: "Name2#!"
+    page.select 'pintor', :from=> "Sub category" 
+    page.select 'text_field', :from=> "Field element" 
+    fill_in "Order", with: 2
 
     click_button "Create Field"
     
-    expect(page).to have_content("Name is invalid")  
+    expect(page).to have_content("Title is invalid")  
   end
 end
