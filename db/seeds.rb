@@ -10,4 +10,4 @@ Category.create(name: "Aulas", slug: "aulas").tap do |category|
   category.sub_categories.create(name: "Idiomas", slug: "idiomas")
 end
 
-FieldElement.create(element: "test", options: true)
+FieldElement.create(element: "text_field", options: true)

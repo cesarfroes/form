@@ -1,0 +1,60 @@
+<%= form_for @field do |f| %>
+  <% if @field.errors.any? %>
+    <ul>
+      <% @field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <div>
+    <div>
+      <div>
+        <%= f.label :title %>
+      </div>
+      <div>
+        <%= f.text_field :title %>
+      </div>      
+    </div>
+    <div>
+      <div>
+        <%= f.label :sub_category_id %>
+      </div>
+      <div>
+        <%= f.collection_select :sub_category_id,
+            @sub_categories,
+            :id,
+            :name
+        %>
+      </div>      
+    </div> 
+    <div>
+      <div>
+        <%= f.label :field_element_id %>
+      </div>
+      <div>
+        <%= f.collection_select :field_element_id,
+            @field_elements,
+            :id,
+            :element
+        %>
+      </div>      
+    </div> 
+    <div>
+      <div>
+        <%= f.label :order %>
+      </div>
+      <div>
+        <%= f.text_field :order %>
+      </div>      
+    </div>           
+    <div>
+      <div>
+        <%= f.submit nil%>
+      </div>
+      <div>
+        <%= link_to "cancel", fields_path%>
+      </div>      
+    </div>    
+  <div>
+<% end %>

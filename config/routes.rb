@@ -8,4 +8,5 @@ Rails.application.routes.draw do
  resources :categories
  resources :sub_categories
  resources :field_elements
+ resources :fields
 end
