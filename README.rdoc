@@ -1,27 +1,27 @@
-#Form getninjas
+# Form getninjas
 
-#install
+# install
 - bundle install
 - set yours database username and password in database.yml
 - run: rake db:drop db:create db:migrate db:seed
 
-#tests
-rspec or bundle exec rspec
+# tests
+- rspec or bundle exec rspec
 
-#manage categories
-/categories/
+# manage categories
+- /categories/
 
-#manage subcategories
-/sub_categories/
+# manage subcategories
+- /sub_categories/
 
-#manage field elements
-/field_elements/
+# manage field elements
+- /field_elements/
 
-#manage fields
-/fields/
+# manage fields
+- /fields/
 
-#access form
-/:slug_category/:slug_sub_category
+# access form
+- /:slug_category/:slug_sub_category
 
 example: /aulas/musica
 
