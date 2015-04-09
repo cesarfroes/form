@@ -8,7 +8,7 @@ RSpec.describe FieldElement, type: :view do
   it "changing field element" do
     visit "/field_elements/#{@field_element.id}/edit"
 
-    fill_in "Element", with: "text_field"
+    fill_in "Element", with: "text"
     page.select 'True', :from=> "Options"    
 
     click_button "Update Field element"

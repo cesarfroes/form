@@ -18,6 +18,14 @@
     </div>
     <div>
       <div>
+        <%= f.label :category_id %>
+      </div>
+      <div>
+        <%= select("field_category", "id", @categories.collect {|c| [ c.name, c.id ] }, {include_blank: ''}) %>
+      </div>      
+    </div>     
+    <div>
+      <div>
         <%= f.label :sub_category_id %>
       </div>
       <div>
@@ -36,10 +44,19 @@
         <%= f.collection_select :field_element_id,
             @field_elements,
             :id,
-            :element
+            :element,
+            {:prompt => 'Select'}
         %>
       </div>      
     </div> 
+    <div>
+      <div>
+        <%= f.label :options %>
+      </div>
+      <div>
+        <%= f.text_area :options %>
+      </div>      
+    </div>      
     <div>
       <div>
         <%= f.label :order %>

@@ -4,6 +4,7 @@ class CreateFields < ActiveRecord::Migration
       t.references :sub_category, index: true
       t.references :field_element, index: true
       t.string :title
+      t.text :options
       t.integer :order
 
       t.timestamps null: false

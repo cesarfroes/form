@@ -1,0 +1,13 @@
+<dl>
+<%=form_for "generic_form", :builder => StandardFormBuilder do |form| %>
+
+  <% @fields.each_with_index do |field, index| %>
+  	<div>
+      <%=form.label field[:title] %>
+      <%=form.field_type field %>
+    </div>
+  <% end %>
+  
+  <%=form.submit "Submit", :class => "button"%>
+<% end %>
+</dl>

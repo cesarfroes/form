@@ -34,7 +34,14 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     redirect_to categories_path, notice: 'Category was successfully destroyed.'
-  end 
+  end
+
+  def sub_categories
+    categories = SubCategory.all().where("category_id = ?", params[:category])
+
+    render json: msg = { :categories => categories }
+  end
+
 
   private
     def set_category

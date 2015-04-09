@@ -7,14 +7,12 @@ class FieldsController < ApplicationController
 
   def new
     @field = Field.new
-    list_sub_categories
-    list_field_elements
+    load_select
   end
 
   def create
     @field = Field.new(fields_params)
-    list_sub_categories
-    list_field_elements
+    load_select
     
     if @field.save
       redirect_to fields_path, notice: 'Field was successfully created.'
@@ -24,16 +22,14 @@ class FieldsController < ApplicationController
   end
 
   def edit
-    list_sub_categories
-    list_field_elements  	
+    load_select  	
   end  
 
   def update
     if @field.update(fields_params)
       redirect_to fields_path, notice: 'Field was successfully updated.'
     else
-      list_sub_categories
-      list_field_elements 
+      load_select
       render :edit
     end
   end 
@@ -41,9 +37,24 @@ class FieldsController < ApplicationController
   def destroy
     @field.destroy
     redirect_to fields_path, notice: 'Field was successfully destroyed.'
-  end 
+  end
+
+  def options
+    field_element = FieldElement.find(params[:field_element])
+
+    render json: msg = { :options => field_element.options }
+  end
 
   private
+    def load_select
+      list_categories
+      list_sub_categories
+      list_field_elements 
+    end
+    def list_categories
+      @categories = Category.all().order("name ASC")
+    end
+
     def list_sub_categories
       @sub_categories = SubCategory.all().order("name ASC")
     end
@@ -57,6 +68,6 @@ class FieldsController < ApplicationController
     end
 
     def fields_params
-      params.require(:field).permit(:title, :order, :sub_category_id, :field_element_id)
+      params.require(:field).permit(:title, :order, :sub_category_id, :field_element_id, :options)
     end
 end

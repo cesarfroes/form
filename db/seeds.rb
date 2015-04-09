@@ -10,4 +10,8 @@ Category.create(name: "Aulas", slug: "aulas").tap do |category|
   category.sub_categories.create(name: "Idiomas", slug: "idiomas")
 end
 
-FieldElement.create(element: "text_field", options: true)
+FieldElement.create([{ element: "text", options: false }, 
+	                { element: "text_area", options: false },
+	                { element: "select", options: true },
+	                { element: "check_box", options: true }
+	                ])

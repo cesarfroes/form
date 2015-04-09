@@ -9,4 +9,8 @@ Rails.application.routes.draw do
  resources :sub_categories
  resources :field_elements
  resources :fields
+ 
+ post "/fields/options/", to: "fields#options"
+ post "/categories/sub_categories/", to: "categories#sub_categories"
+ get "/:slug_category/:slug_sub_category/", to: "forms#index"
 end

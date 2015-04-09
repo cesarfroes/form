@@ -28,7 +28,7 @@ RSpec.describe FieldElement, type: :view do
   it "creating a invalid field element" do 
     visit "/field_elements/new"
 
-    fill_in "Element", with: "text"
+    fill_in "Element", with: "text_field"
     page.select 'True', :from=> "Options"
 
     click_button "Create Field element"

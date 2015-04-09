@@ -8,6 +8,6 @@ RSpec.describe FieldElement, type: :view do
   it "renders a list of field elements" do
     visit "field_elements/"
 
-    expect(page).to have_content("text_field")
+    expect(page).to have_content("text")
   end
 end

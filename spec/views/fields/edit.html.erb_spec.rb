@@ -10,7 +10,7 @@ RSpec.describe Field, type: :view do
 
     fill_in "Title", with: "Name2"
     page.select 'pintor', :from=> "Sub category" 
-    page.select 'text_field', :from=> "Field element" 
+    page.select 'text', :from=> "Field element" 
     fill_in "Order", with: 2
 
     click_button "Update Field"
@@ -24,11 +24,11 @@ RSpec.describe Field, type: :view do
 
     fill_in "Title", with: "Name2#!#"
     page.select 'pintor', :from=> "Sub category" 
-    page.select 'text_field', :from=> "Field element" 
+    page.select 'text', :from=> "Field element" 
     fill_in "Order", with: 2
 
     click_button "Update Field"
-    
+
     expect(page).to have_content("Title is invalid")   
   end
 end

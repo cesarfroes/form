@@ -3,14 +3,10 @@ class FieldElement < ActiveRecord::Base
 
 	#belongs_to :field, inverse_of: :field_elements
 	validates :element, inclusion: %w(
-		                              check_box 
-		                              date_field 
-		                              datetime_field
-		                              password_field
-		                              phone_field
+		                              check_box
+		                              password
 		                              text_area
-		                              text_field
+		                              text
 		                              select
-		                              collection_select
 		                              )
 end

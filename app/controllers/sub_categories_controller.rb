@@ -37,7 +37,7 @@ class SubCategoriesController < ApplicationController
   def destroy
     @sub_category.destroy
     redirect_to sub_categories_path, notice: 'SubCategory was successfully destroyed.'
-  end 
+  end
 
   private
     def list_categories
