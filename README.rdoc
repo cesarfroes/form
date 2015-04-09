@@ -19,6 +19,7 @@
 
 # manage fields
 - /fields/
+OBS: to insert options for (select and checkbox), fill in text_area (options) field values with coma. Example: ruby, python, php, java
 
 # access form
 - /:slug_category/:slug_sub_category
