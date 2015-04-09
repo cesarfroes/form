@@ -1,73 +1,29 @@
-== GetNinjas - Formulário dinâmicos
+#Form getninjas
 
-Em nosso site temos um formulário de orçamento específico para cada uma das subcategorias existentes no site.
+#install
+- bundle install
+- set yours database username and password in database.yml
+- run: rake db:drop db:create db:migrate db:seed
 
-Os formulários podem ser vistos em:
+#tests
+rspec or bundle exec rspec
 
-http://www.getninjas.com.br/reformas-e-reparos/pedreiro/
-http://www.getninjas.com.br/eventos-e-festas/recepcionistas-garcons-e-bartenders/
-http://www.getninjas.com.br/para-o-lar-e-animais-de-estimacao/acompanhante-de-idosos/
-http://www.getninjas.com.br/tecnologia-e-internet/manutencao-de-computadores/
+#manage categories
+/categories/
 
-Sua tarefa é criar uma aplicação Rails com uma interface administrativa que permite criar / editar formulários para cada uma das subcategorias existentes.
+#manage subcategories
+/sub_categories/
 
-A aplicação também deve ser capaz de "renderizar" estes formulários que foram criados pela interface administrativa.
+#manage field elements
+/field_elements/
 
-Os formulários são baseados na seguinte estrutura:
+#manage fields
+/fields/
 
-{
-  sub_category_id: 1,
-  fields: [
-    {
-      order: 2,
-      title: "Second Field",
-      type: "checkbox",
-      values: ["Foo", "Bar", "Baz"]
-    },
-    {
-      order: 1,
-      title: "First Field",
-      type: "select",
-      values: ["Foo", "Bar", "Baz"]
-    },
-    {
-      order: 4,
-      title: "Fourth Field",
-      type: "text"
-    },
-    {
-      order: 3,
-      title: "Third Field",
-      type: "textarea"
-    }
-  ]
-}
+#access form
+/:slug_category/:slug_sub_category
 
-Esta aplicação Rails contém modelos ActiveRecord para Category e SubCategory, e seed data para 2 categorias e 4 subcategorias.
-Através do Admin, deve ser possível:
-  - adicionar / remover os campos de cada formulário
-  - escolher o tipo do campo
-  - escolher a ordem do campo
-  - se o campo for do tipo checkbox ou select: adicionar / remover possíveis valores
+example: /aulas/musica
 
-O codigo deve ser genérico o suficiente para suportar mais de 100 formulários.
+:)
 
-== É necessário:
-
-  - Testes (unitário e de integração) para a geração dos formulários dinâmicos
-  - Que os formulários sejam exibidos ao acessar a rota: /:slug_categoria/:slug_subcategoria/
-  - Criar commits (Git) mostrando a evolução da sua app
-
-== Não é necessário:
-
-  - Layout das páginas (formulários e admin)
-  - Autenticação da área administrativa
-  - Testes para a área administrativa
-  - Salvar os dados preenchidos nos formulários
-  - Nos formulários do GetNinjas.com.br, os campos do tipo "checkbox" e "select", possuem o valor "Outro". Neste exercício, ele não precisa ser implementado
-
-== É permitido:
-  - Utilizar qualquer banco de dados que achar necessário
-
-== Não é permitido:
-  - Utilização de gem / plugin que gera o HTML dos formulários. Utilize apenas os helpers padrões do Rails.

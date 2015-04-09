@@ -21,7 +21,7 @@
         <%= f.label :category_id %>
       </div>
       <div>
-        <%= select("field_category", "id", @categories.collect {|c| [ c.name, c.id ] }, {include_blank: ''}) %>
+          <%= select("field_category", "id", @categories.collect {|c| [ c.name, c.id ] }, {include_blank: '', selected: @category_id}) %>
       </div>      
     </div>     
     <div>
@@ -48,8 +48,8 @@
         %>
       </div>      
     </div> 
-    <div>
-      <div>
+    <div style="display: <%=@options_none%>">
+      <div><%=@options_none%>
         <%= f.label :options %>
       </div>
       <div>

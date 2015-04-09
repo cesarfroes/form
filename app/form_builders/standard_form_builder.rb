@@ -8,9 +8,9 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
   	  text_area(options[:label])
   	when "hidden"
   	  hidden_field(options[:label])
-  	when "checkbox"
+  	when "check_box"
   	  checkbox = options[:values]
-  	  checkbox.map {|value| check_box(value, {}, true, false)}.join.html_safe
+  	  checkbox.map {|value| value << " " << check_box(value, {}, true, false)}.join.html_safe
   	when "select"
   	  select("post", options[:values])
   	else

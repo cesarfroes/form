@@ -22,7 +22,11 @@ class FieldsController < ApplicationController
   end
 
   def edit
-    load_select  	
+    load_select
+    
+    if @field.field_element.options == false
+      @options_none = "none"
+    end
   end  
 
   def update
@@ -65,6 +69,7 @@ class FieldsController < ApplicationController
     
     def set_field
       @field = Field.find(params[:id])
+      @category_id = @field.sub_category.category_id
     end
 
     def fields_params

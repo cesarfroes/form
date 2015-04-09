@@ -37,7 +37,11 @@ class CategoriesController < ApplicationController
   end
 
   def sub_categories
-    categories = SubCategory.all().where("category_id = ?", params[:category])
+    if params[:category].blank?
+      categories = []
+    else 
+      categories = SubCategory.all().where("category_id = ?", params[:category])
+    end
 
     render json: msg = { :categories => categories }
   end
