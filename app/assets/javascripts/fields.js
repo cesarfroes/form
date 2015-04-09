@@ -1,4 +1,9 @@
 $( document ).ready(function() {
+	
+	if(!$("#field_category_id").val()) {
+		$('#field_sub_category_id').html("");
+	}
+	
 	$("#field_category_id").change(function(){
 		var field_category_value = $(this).val();
 	    
